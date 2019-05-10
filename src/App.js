@@ -3,6 +3,7 @@ import { Url } from './Url';
 import { ParamsTable } from './ParamsTable';
 import { BaseUrlInput } from './BaseUrlInput';
 import { Spacer } from './Spacer';
+import { defaultParam } from './defaultParam';
 
 function App() {
   const [baseUrl, setBaseUrl] = React.useState('');
