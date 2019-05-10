@@ -1,4 +1,6 @@
 import React from 'react';
+import { Url } from './Url';
+import { ParamsTable } from './ParamsTable';
 
 const defaultParam = {
   query: '',
@@ -101,7 +103,7 @@ function App() {
         </tbody>
       </table>
       <button onClick={addParam}>Add parameter</button>
-      <a href={url}>{url}</a>
+      <Url url={url} />
     </div>
   );
 }
