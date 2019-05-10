@@ -45,6 +45,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Query Builder</h1>
       <BaseUrlInput value={baseUrl} onChange={handleBaseUrlChange} />
       <Spacer />
       <ParamsTable params={params} setParams={setParams} />
