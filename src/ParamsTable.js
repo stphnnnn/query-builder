@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from './Icon';
+import { IconTypes } from './iconTypes';
 
 export const ParamsTable = ({ params, setParams }) => {
   const handleQueryRemove = index => {
@@ -19,41 +21,35 @@ export const ParamsTable = ({ params, setParams }) => {
   };
 
   return (
-    <table className="ParamsTable">
-      <thead>
-        <tr>
-          <th>Query</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        {params.map(({ query, value }, i) => (
-          <tr key={i}>
-            <td>
-              <input
-                value={query}
-                onChange={({ target }) =>
-                  handleQueryChange(i, 'query', target.value)
-                }
-              />
-            </td>
-            <td>
-              <input
-                value={value}
-                onChange={({ target }) =>
-                  handleQueryChange(i, 'value', target.value)
-                }
-              />
-            </td>
-            <td>
-              <button onClick={() => handleQueryRemove(i)} disabled={i === 0}>
-                Remove
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="ParamsTable">
+      <div className="row">
+        <div>Query</div>
+        <div>Value</div>
+      </div>
+      {params.map(({ query, value }, i) => (
+        <div className="row" key={i}>
+          <input
+            value={query}
+            onChange={({ target }) =>
+              handleQueryChange(i, 'query', target.value)
+            }
+          />
+          <input
+            value={value}
+            onChange={({ target }) =>
+              handleQueryChange(i, 'value', target.value)
+            }
+          />
+          <button
+            onClick={() => handleQueryRemove(i)}
+            aria-label="Delete row"
+            disabled={i === 0}
+          >
+            <Icon icon={IconTypes.DELETE} />
+          </button>
+        </div>
+      ))}
+    </div>
   );
 };
 

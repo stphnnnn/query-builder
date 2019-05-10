@@ -49,7 +49,7 @@ function App() {
       <BaseUrlInput value={baseUrl} onChange={handleBaseUrlChange} />
       <Spacer />
       <ParamsTable params={params} setParams={setParams} />
-      <button onClick={addParam}>Add parameter</button>
+      <button onClick={addParam}>+ Add Parameter</button>
       <Url url={url} />
     </div>
   );

@@ -1,6 +1,13 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 .App {
   --color-primary: #0400ff;
   --color-primary-dark: #030086;
+  --color-light-grey: lightgrey;
   --color-white: #fff;
   --font-family: 'Lucida Console', Monaco, monospace;
 
@@ -25,26 +32,35 @@
 }
 
 .ParamsTable {
-  border-collapse: collapse;
+  width: 100%;
+  display: grid;
+  row-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ParamsTable .row {
+  font-weight: normal;
+  display: grid;
+  grid-template-columns: 1fr 1fr 3rem;
+  gap: 1rem;
+}
+
+.ParamsTable button svg {
+  stroke: var(--color-primary);
   width: 100%;
 }
 
-.ParamsTable th {
-  font-weight: normal;
+.ParamsTable button:disabled svg {
+  stroke: var(--color-light-grey);
 }
 
-.ParamsTable tr {
-  border-collapse: collapse;
-}
-
-.ParamsTable td {
-  border-collapse: collapse;
+.Url {
+  margin-top: 2rem;
 }
 
 input {
-  font-size: 16px;
   padding: 10px;
-  margin: 10px 0px;
+  height: 3rem;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
@@ -53,4 +69,28 @@ input:focus {
   outline: 2px solid var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   outline-offset: 0px;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--color-primary);
+  height: 3rem;
+  font-family: inherit;
+  display: flex;
+  place-content: center center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+button:focus {
+  outline: 2px solid var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  outline-offset: 0px;
+}
+
+button:disabled {
+  border-color: var(--color-light-grey);
 }

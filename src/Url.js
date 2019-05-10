@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const Url = ({ url }) =>
   url && (
-    <div>
+    <div className="Url">
       <a href={url}>{url}</a>
     </div>
   );
