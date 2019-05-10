@@ -46,9 +46,9 @@ export const ParamsTable = ({ params, setParams }) => {
               />
             </td>
             <td>
-              {i !== 0 && (
-                <button onClick={() => handleQueryRemove(i)}>Remove</button>
-              )}
+              <button onClick={() => handleQueryRemove(i)} disabled={i === 0}>
+                Remove
+              </button>
             </td>
           </tr>
         ))}
