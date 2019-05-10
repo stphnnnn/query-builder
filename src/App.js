@@ -13,7 +13,7 @@ function App() {
     setBaseUrl(value);
   };
 
-  const [params, setParams] = React.useState([]);
+  const [params, setParams] = React.useState([{ ...defaultParam }]);
 
   const addParam = (param = defaultParam) => {
     setParams(oldParams => [...oldParams, param]);
@@ -27,8 +27,8 @@ function App() {
     }
 
     if (urlParams.has('query')) {
-      const queries = urlParams.getAll('query');
-      queries.forEach(query => {
+      setParams([]);
+      urlParams.getAll('query').forEach(query => {
         addParam({ ...defaultParam, query });
       });
     }
