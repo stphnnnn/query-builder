@@ -1,11 +1,8 @@
 import React from 'react';
 import { Url } from './Url';
 import { ParamsTable } from './ParamsTable';
-
-const defaultParam = {
-  query: '',
-  value: '',
-};
+import { BaseUrlInput } from './BaseUrlInput';
+import { Spacer } from './Spacer';
 
 function App() {
   const [baseUrl, setBaseUrl] = React.useState('');
@@ -19,22 +16,6 @@ function App() {
 
   const addParam = (param = defaultParam) => {
     setParams(oldParams => [...oldParams, param]);
-  };
-
-  const handleQueryRemove = index => {
-    setParams(oldParams => oldParams.filter((param, i) => i !== index));
-  };
-
-  const handleQueryChange = (index, key, value) => {
-    setParams(oldParams =>
-      oldParams.map((param, i) => {
-        if (i !== index) return param;
-        return {
-          ...param,
-          [key]: value,
-        };
-      })
-    );
   };
 
   React.useEffect(() => {
@@ -65,6 +46,7 @@ function App() {
     <div className="App">
       <BaseUrlInput value={baseUrl} onChange={handleBaseUrlChange} />
       <Spacer />
+      <ParamsTable params={params} setParams={setParams} />
       <button onClick={addParam}>Add parameter</button>
       <Url url={url} />
     </div>
