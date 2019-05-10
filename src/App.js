@@ -63,45 +63,8 @@ function App() {
 
   return (
     <div className="App">
-      Base URL:{' '}
-      <input
-        value={baseUrl}
-        onChange={handleBaseUrlChange}
-        placeholder="https://..."
-      />
-      <table>
-        <thead>
-          <tr>
-            <th>Query</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {params.map(({ query, value }, i) => (
-            <tr key={i}>
-              <th>
-                <input
-                  value={query}
-                  onChange={({ target }) =>
-                    handleQueryChange(i, 'query', target.value)
-                  }
-                />
-              </th>
-              <th>
-                <input
-                  value={value}
-                  onChange={({ target }) =>
-                    handleQueryChange(i, 'value', target.value)
-                  }
-                />
-              </th>
-              <th>
-                <button onClick={() => handleQueryRemove(i)}>Remove</button>
-              </th>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <BaseUrlInput value={baseUrl} onChange={handleBaseUrlChange} />
+      <Spacer />
       <button onClick={addParam}>Add parameter</button>
       <Url url={url} />
     </div>
