@@ -39,10 +39,17 @@
 }
 
 .ParamsTable .row {
-  font-weight: normal;
   display: grid;
   grid-template-columns: 1fr 1fr 3rem;
-  gap: 1rem;
+  grid-gap: 1rem;
+}
+
+.ParamsTable .row > * {
+  min-width: 0;
+}
+
+.ParamsTable button {
+  width: 3rem;
 }
 
 .ParamsTable button svg {
