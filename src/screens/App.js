@@ -1,9 +1,9 @@
 import React from 'react';
-import { Url } from './Url';
-import { ParamsTable } from './ParamsTable';
-import { BaseUrlInput } from './BaseUrlInput';
-import { Spacer } from './Spacer';
-import { defaultParam } from './defaultParam';
+import { Url } from '../components/Url';
+import { ParamsTable } from '../components/ParamsTable';
+import { BaseUrlInput } from '../components/BaseUrlInput';
+import { Spacer } from '../components/Spacer';
+import { defaultParam } from '../utils/defaultParam';
 
 function App() {
   const [baseUrl, setBaseUrl] = React.useState('');
@@ -49,7 +49,9 @@ function App() {
       <BaseUrlInput value={baseUrl} onChange={handleBaseUrlChange} />
       <Spacer />
       <ParamsTable params={params} setParams={setParams} />
-      <button onClick={addParam}>+ Add Parameter</button>
+      <button aria-label="Add parameter" onClick={addParam}>
+        + Add Parameter
+      </button>
       <Url url={url} />
     </div>
   );

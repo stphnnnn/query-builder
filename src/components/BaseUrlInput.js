@@ -11,7 +11,7 @@ export const BaseUrlInput = props => {
   const id = useUniqueElementId('input');
   return (
     <div className="BaseUrlInput">
-      <label htmlFor={id}>Base URL:</label>
+      <label htmlFor={id}>Base URL</label>
       <input id={id} {...props} />
     </div>
   );

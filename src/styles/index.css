@@ -1,3 +1,11 @@
+:root {
+  --color-primary: #0400ff;
+  --color-primary-dark: #030086;
+  --color-light-grey: lightgrey;
+  --color-white: #fff;
+  --font-family: 'Lucida Console', Monaco, monospace;
+}
+
 *,
 *:after,
 *:before {
@@ -5,12 +13,6 @@
 }
 
 .App {
-  --color-primary: #0400ff;
-  --color-primary-dark: #030086;
-  --color-light-grey: lightgrey;
-  --color-white: #fff;
-  --font-family: 'Lucida Console', Monaco, monospace;
-
   font-family: var(--font-family);
   font-size: 16px;
   margin: 50px auto;
@@ -82,6 +84,7 @@ button {
   cursor: pointer;
   background: transparent;
   padding: 0.5rem 0.75rem;
+  border-radius: 0;
   border: 2px solid var(--color-primary);
   height: 3rem;
   font-family: inherit;

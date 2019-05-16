@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from './Icon';
-import { IconTypes } from './iconTypes';
+import { iconTypes } from '../utils/iconTypes';
 
 export const ParamsTable = ({ params, setParams }) => {
   const handleQueryRemove = index => {
@@ -23,18 +23,20 @@ export const ParamsTable = ({ params, setParams }) => {
   return (
     <div className="ParamsTable">
       <div className="row">
-        <div>Query</div>
-        <div>Value</div>
+        <div id="query-label">Query</div>
+        <div id="value-label">Value</div>
       </div>
       {params.map(({ query, value }, i) => (
         <div className="row" key={i}>
           <input
+            aria-labelledby="query-label"
             value={query}
             onChange={({ target }) =>
               handleQueryChange(i, 'query', target.value)
             }
           />
           <input
+            aria-labelledby="value-label"
             value={value}
             onChange={({ target }) =>
               handleQueryChange(i, 'value', target.value)
@@ -45,7 +47,7 @@ export const ParamsTable = ({ params, setParams }) => {
             aria-label="Delete row"
             disabled={i === 0}
           >
-            <Icon icon={IconTypes.DELETE} />
+            <Icon icon={iconTypes.DELETE} />
           </button>
         </div>
       ))}
